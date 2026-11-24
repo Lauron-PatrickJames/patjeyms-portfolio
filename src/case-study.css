@@ -1,14 +1,19 @@
 /* Case-study pages: "supplements" to the annual report.
-   Loaded after style.css and reuses its tokens, .page, .page-head, .reveal, table.fin, .pen, etc. */
+   Loaded after style.css and reuses its tokens, .page, .page-head, .reveal, table.fin, .pen, etc.
+
+   Each supplement can take its project's colour: set on <body>
+     --project         dark background for the cover and closing section
+     --project-accent  light accent that stays readable on it
+   Without them the page falls back to ledger navy with a coral accent. */
 
 /* reading progress: a thin red rule across the top */
 .progress {
   position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 60;
-  background: var(--accent); transform: scaleX(0); transform-origin: left;
+  background: var(--project, var(--accent)); transform: scaleX(0); transform-origin: left;
 }
 
 /* ===================== SUPPLEMENT COVER ===================== */
-.cs-cover { background: var(--navy); padding-bottom: clamp(56px, 8vw, 96px); overflow: hidden; /* the stamping title starts oversized */ }
+.cs-cover { --accent: var(--project-accent, #f08a68); background: var(--project, var(--navy)); padding-bottom: clamp(56px, 8vw, 96px); overflow: hidden; /* the stamping title starts oversized */ }
 .cs-top {
   display: flex; justify-content: space-between; align-items: center; gap: 16px;
   padding: 20px 0; border-bottom: 1px solid var(--rule);
@@ -155,6 +160,10 @@
 }
 
 /* ===================== CLOSING BAND ===================== */
+.closing { background: var(--project, var(--night)); }
+.closing .kicker { color: var(--project-accent, #ff8a5c); }
+.closing .info h3 { color: rgba(236, 230, 218, .74); } /* softened cream: reads on any dark project colour */
+.closing .info a:hover { border-color: var(--project-accent, #ff8a5c); color: var(--project-accent, #ffb08f); }
 .closing .info { grid-template-columns: repeat(3, 1fr); }
 .closing .big-mail { font-size: clamp(30px, 5vw, 64px); }
 
