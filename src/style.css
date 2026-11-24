@@ -177,7 +177,21 @@ a { color: inherit; }
   float: left; font-size: 4.2em; line-height: .82; padding: .06em .08em 0 0; color: var(--accent);
 }
 .sign { break-inside: avoid; margin-top: 1.6em; }
-.sign .sig { font-style: italic; font-size: 1.75em; white-space: nowrap; line-height: 1; transform: rotate(-3deg); display: inline-block; }
+/* handwritten signature in fountain-pen ink: the name writes itself in, then the flourish draws under it */
+.sign .sig {
+  --pen-ink: #22396b;
+  position: relative; display: inline-block; white-space: nowrap;
+  font-family: "Caveat", cursive; font-size: 2.7em; line-height: .9; color: var(--pen-ink);
+  padding: 0 .2em .18em 0; transform: rotate(-4deg); transform-origin: 0 100%;
+  clip-path: inset(-.3em 100% -.3em -.2em); transition: clip-path 1.3s cubic-bezier(.45,0,.25,1) .35s;
+}
+.in .sign .sig { clip-path: inset(-.3em -.3em -.3em -.2em); }
+.sig-flourish { position: absolute; left: -.1em; bottom: -.12em; width: 108%; height: .42em; overflow: visible; }
+.sig-flourish path {
+  fill: none; stroke: var(--pen-ink); stroke-width: 2; stroke-linecap: round; opacity: .9;
+  stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset .8s cubic-bezier(.5,0,.3,1) 1.5s;
+}
+.in .sig-flourish path { stroke-dashoffset: 0; }
 .sign small { display: block; color: var(--ink-soft); font-size: .82em; margin-top: 6px; }
 figure { margin: 0; }
 .portrait {
@@ -190,6 +204,9 @@ figure { margin: 0; }
 /* Replace the .portrait div with <img class="portrait" src="me.jpg" alt="..."> when you have a photo */
 img.portrait { display: block; width: 100%; height: auto; object-fit: cover; object-position: 45% 50%; filter: grayscale(.15) sepia(.12) contrast(1.05); }
 figcaption { margin-top: 10px; font-size: 15px; color: var(--ink-soft); font-style: italic; border-top: 1px solid var(--rule); padding-top: 8px; }
+figcaption cite { font-style: normal; } /* titles set roman inside the italic caption */
+figcaption a { text-decoration: none; border-bottom: 1px solid currentColor; }
+figcaption a:hover { color: var(--accent); }
 
 /* ===================== HIGHLIGHTS (financial table) ===================== */
 .highlights { display: grid; grid-template-columns: 1.5fr 1fr; gap: clamp(32px, 6vw, 80px); align-items: start; }
@@ -414,6 +431,33 @@ td.pen-cell, .ledger li { position: relative; }
 }
 .in .signoff { clip-path: inset(-10px -10px -10px -10px); }
 
+/* 7. Back-to-top seal: a paper button whose red ring fills with reading progress (--p, 0 → 1) */
+.to-top {
+  all: unset; box-sizing: border-box; cursor: pointer;
+  position: fixed; z-index: 70;
+  right: calc(18px + env(safe-area-inset-right));
+  bottom: calc(18px + env(safe-area-inset-bottom));
+  width: 56px; height: 56px; border-radius: 50%;
+  display: grid; place-items: center; align-content: center;
+  background: var(--paper); color: var(--ink);
+  box-shadow: 0 1px 0 rgba(0,0,0,.08), 0 10px 26px -10px rgba(20, 14, 8, .55);
+  opacity: 0; transform: translateY(14px) scale(.9); pointer-events: none;
+  transition: opacity .35s ease, transform .45s cubic-bezier(.2,.8,.2,1), background .25s, color .25s;
+}
+.to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+.to-top svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.to-top .track { fill: none; stroke: var(--rule); stroke-width: 1.5; }
+.to-top .ring {
+  fill: none; stroke: var(--accent); stroke-width: 2.2; stroke-linecap: round;
+  stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--p, 0));
+}
+.to-top .arrow { font-family: var(--serif); font-size: 22px; line-height: 1; margin-top: 2px; transition: transform .3s cubic-bezier(.2,.8,.2,1); }
+.to-top .lbl { font-family: var(--mono); font-size: 8.5px; letter-spacing: .14em; text-transform: uppercase; line-height: 1; margin-top: 2px; }
+.to-top:hover, .to-top:focus-visible { background: var(--ink); color: var(--paper); }
+.to-top:hover .arrow, .to-top:focus-visible .arrow { transform: translateY(-3px); }
+.to-top:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.to-top:active { transform: scale(.94); }
+
 /* ===================== RESPONSIVE ===================== */
 @media (max-width: 900px) {
   .letter, .highlights { grid-template-columns: 1fr; }
@@ -448,9 +492,9 @@ td.pen-cell, .ledger li { position: relative; }
   .page-head::after { transform: none; }
 }
 @media print {
-  .contents, .cover-foot .scroll, body::after, .press { display: none !important; }
+  .contents, .cover-foot .scroll, body::after, .press, .to-top { display: none !important; }
   .page-head::after, main > .page { transform: none !important; }
-  .pen path { stroke-dashoffset: 0; } .signoff { clip-path: none; }
+  .pen path, .sig-flourish path { stroke-dashoffset: 0; } .signoff, .sign .sig { clip-path: none; }
   .cover { min-height: 100vh; break-after: page; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .page { break-inside: avoid-page; }
   .reveal { opacity: 1; transform: none; }
