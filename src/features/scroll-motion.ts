@@ -1,4 +1,4 @@
-import { $, $$, clamp, easeOutCubic, prefersReducedMotion } from '../lib/dom';
+import { $$, clamp, easeOutCubic, prefersReducedMotion } from '../lib/dom';
 
 /**
  * Scroll-linked motion:
@@ -15,7 +15,7 @@ const SETTLE_DISTANCE = 0.65;
 export function initScrollMotion(): void {
   if (prefersReducedMotion) return;
 
-  const cover = $('.cover');
+  const cover = document.querySelector<HTMLElement>('.cover'); // only the home page has the mosaic cover
   const sheets = $$('main > .page');
   let queued = false;
 
@@ -24,7 +24,7 @@ export function initScrollMotion(): void {
     const vh = innerHeight;
     const y = scrollY;
 
-    cover.style.setProperty('--cp', clamp(y / cover.offsetHeight).toFixed(3));
+    cover?.style.setProperty('--cp', clamp(y / cover.offsetHeight).toFixed(3));
 
     for (const sheet of sheets) {
       // offsetTop ignores transforms, so moving a sheet never feeds back into its own progress

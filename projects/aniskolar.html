@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AniSkolar: Case Study — Pat Lauron</title>
+<meta name="description" content="How Pat Lauron built AniSkolar, the scholarship portal for De La Salle University – Dasmariñas: 15 scholarship offices, four kinds of users, one system.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/src/style.css">
+<link rel="stylesheet" href="/src/case-study.css">
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- ============================== SUPPLEMENT COVER ============================== -->
+<header class="cs-cover" id="top">
+  <div class="wrap">
+    <div class="cs-top mono caps">
+      <a href="../index.html#operations">← 2026 Annual Report</a>
+      <span>Supplement A · Project 01</span>
+    </div>
+    <div class="cs-title">
+      <span class="kicker mono caps">Special report on operations</span>
+      <h1>AniSkolar</h1>
+      <p class="cs-dek">The scholarship portal for De La Salle University – Dasmariñas, built for the Admissions and Scholarship Office and the fourteen other offices that award scholarships on campus.</p>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="wrap">
+      <h2 class="band-title">Key figures, May – November 2026</h2>
+      <div class="figures">
+        <div><div class="plate p1"><b>15</b></div><p>scholarship offices working in one system, each seeing only its own scholars</p></div>
+        <div><div class="plate p2"><b>4</b></div><p>kinds of users, each with their own portal</p></div>
+        <div><div class="plate p3"><b>250</b></div><p>automated tests: 210 for the API, 40 in the browser</p></div>
+        <div><div class="plate p4"><b>280<small> / 285</small></b></div><p>commits across the frontend and backend that are mine</p></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================== CONTENTS ============================== -->
+<nav class="contents" aria-label="Contents">
+  <div class="wrap">
+    <a class="who" href="../index.html">Pat Lauron</a>
+    <ol>
+      <li><a class="sec" href="#glance"><span class="mono">A1</span>At a glance</a></li>
+      <li><a class="sec" href="#problem"><span class="mono">A2</span>Problem</a></li>
+      <li><a class="sec" href="#users"><span class="mono">A3</span>Users</a></li>
+      <li><a class="sec" href="#screens"><span class="mono">A4</span>Screens</a></li>
+      <li><a class="sec" href="#system"><span class="mono">A5</span>System</a></li>
+      <li><a class="sec" href="#notes"><span class="mono">A6</span>Notes</a></li>
+      <li><a class="sec" href="#results"><span class="mono">A7</span>Figures</a></li>
+      <li><a class="sec" href="#outlook"><span class="mono">A8</span>Outlook</a></li>
+    </ol>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============================== A1 AT A GLANCE ============================== -->
+<section class="page" id="glance">
+  <div class="wrap">
+    <div class="page-head reveal">
+      <div><span class="kicker mono caps">Summary</span><h2>At a Glance</h2></div>
+      <div class="folio mono caps"><b>A1</b>Page</div>
+    </div>
+
+    <div class="glance reveal">
+      <dl class="ledger-dl">
+        <div><dt>Client</dt><dd>Admissions and Scholarship Office (AdSO), De La Salle University – Dasmariñas</dd></div>
+        <div><dt>Type</dt><dd>Undergraduate capstone, BS Information Technology</dd></div>
+        <div><dt>My role</dt><dd>Lead developer: frontend, backend, data model and deployment</dd></div>
+        <div><dt>Team</dt><dd>Three-person capstone group: me, <a href="https://www.linkedin.com/in/paula-ng-7b11473b6/">Paula Mitchel Ng ↗</a> and <a href="https://www.linkedin.com/in/allyson-martin-908914392/">Aiven Allyson Martin ↗</a></dd></div>
+        <div><dt>Timeline</dt><dd>May 2026 – present</dd></div>
+      </dl>
+      <dl class="ledger-dl">
+        <div><dt>Frontend</dt><dd>React, TypeScript, Vite, Tailwind CSS, Recharts</dd></div>
+        <div><dt>Backend</dt><dd>Node.js, Express, MongoDB with Mongoose</dd></div>
+        <div><dt>Services</dt><dd>Clerk (Microsoft sign-in), Azure Blob Storage, Azure Communication Services email, Sentry</dd></div>
+        <div><dt>Hosting</dt><dd>Vercel (web app), Render in Singapore (API), MongoDB Atlas</dd></div>
+        <div><dt>Links</dt><dd><a href="https://www.aniskolar.com/">aniskolar.com ↗</a> &nbsp;·&nbsp; <a href="https://github.com/Lauron-PatrickJames/AniSkolar_Frontend">Frontend source ↗</a> &nbsp;·&nbsp; <a href="https://github.com/Lauron-PatrickJames/AniSkolar_Backend">Backend source ↗</a></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== A2 PROBLEM ============================== -->
+<section class="page statement" id="problem">
+  <div class="wrap">
+    <div class="page-head reveal">
+      <div><span class="kicker mono caps">Background</span><h2>Statement of the Problem</h2></div>
+      <div class="folio mono caps"><b>A2</b>Page</div>
+    </div>
+
+    <div class="letter-body reveal">
+      <p class="first">Scholarships at DLSU-D aren't run by one office. The Admissions and Scholarship Office handles the Student Financial Aid Grant (SFAG), Entrance and EBPSP scholarships, while POLCA, the Alumni office, the Sports Development Office, ROTC, the student publications, the University Student Government and seven college student governments each run their own, with their own forms, rules and deadlines.</p>
+      <p>Being a scholar is also ongoing, not a one-time application. SFAG scholars render duty hours in campus offices every semester, office heads evaluate their work, and every scholar renews each semester with their grades. Deciding a renewal means cross-checking GPA, failing grades, documents, logged hours and an evaluation, for every scholar, every semester.</p>
+      <p>AniSkolar puts that whole lifecycle in one place: finding a scholarship, applying, being reviewed, logging duty, being evaluated and renewing. It also enforces the offices' rules, so staff stop checking them by hand, and keeps each office's data separate from every other office's.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== A3 USERS ============================== -->
+<section class="page" id="users">
+  <div class="wrap">
+    <div class="page-head reveal">
+      <div><span class="kicker mono caps">Who it serves</span><h2>Four Divisions of Users</h2></div>
+      <div class="folio mono caps"><b>A3</b>Page</div>
+    </div>
+
+    <div class="divisions reveal">
+      <div class="division" style="--sw:#c2412d">
+        <div class="swatch"></div>
+        <h3>Students</h3>
+        <p class="count">Microsoft school sign-in</p>
+        <p>Explore and compare scholarships with eligibility warnings, apply with document checklists and auto-saved drafts, track every application on a timeline, renew each semester, log duty hours and message the office.</p>
+      </div>
+      <div class="division" style="--sw:#2a5d8f">
+        <div class="swatch"></div>
+        <h3>Scholarship Office</h3>
+        <p class="count">The AdSO</p>
+        <p>Reviews applications with saved reply templates and one-click ZIP downloads, runs renewals with automatic eligibility checks, assigns duty offices, posts announcements to the portal, Facebook and Outlook, and exports statistics and the FSE report.</p>
+      </div>
+      <div class="division" style="--sw:#d9a13b">
+        <div class="swatch"></div>
+        <h3>Other Offices</h3>
+        <p class="count">14 offices</p>
+        <p>Run their own scholarships end to end (open, close, decide, renew) and record their own criteria, such as ROTC ranks, publication points or a varsity coach's endorsement. AniSkolar turns those into a result.</p>
+      </div>
+      <div class="division" style="--sw:#3d8a6b">
+        <div class="swatch"></div>
+        <h3>Duty Office Heads</h3>
+        <p class="count">Signed in by office email</p>
+        <p>Confirm or flag the duties scholars log, and evaluate each scholar on a 1–5 form once their hours are complete. That evaluation feeds straight into the scholar's next renewal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== A4 EXHIBITS (screenshots; student number redacted) ============================== -->
+<section class="page" id="screens">
+  <div class="wrap">
+    <div class="page-head reveal">
+      <div><span class="kicker mono caps">The product</span><h2>Selected Exhibits</h2></div>
+      <div class="folio mono caps"><b>A4</b>Page</div>
+    </div>
+
+    <div class="exhibits">
+      <figure class="shot wide reveal">
+        <button class="shot-zoom" type="button" aria-label="Enlarge exhibit 1, the landing page">
+          <img src="/src/assets/aniskolar/landing.webp" width="1896" height="902" loading="lazy" alt="AniSkolar's public landing page: the headline 'Fulfill Your Dreams with AniSkolar' over a green-tinted photo of the DLSU-D campus, with Explore Scholarships and Login buttons.">
+        </button>
+        <figcaption>Exhibit 1. The public landing page at aniskolar.com, where students explore scholarships before signing in.</figcaption>
+      </figure>
+
+      <figure class="shot wide reveal">
+        <button class="shot-zoom" type="button" aria-label="Enlarge exhibit 2, the student dashboard">
+          <img src="/src/assets/aniskolar/dashboard.webp" width="1900" height="902" loading="lazy" alt="The student dashboard for an SFAG scholar: a green banner with program, year level and GPA, then cards for the scholarship, duty-hour progress (25 of 70 hours) and an open renewal, the office's latest announcements and quick actions.">
+        </button>
+        <figcaption>Exhibit 2. The student dashboard: the scholar's grant, duty-hour progress and renewal status at a glance, with the office's latest announcements. Student number redacted.</figcaption>
+      </figure>
+
+      <figure class="shot reveal">
+        <button class="shot-zoom" type="button" aria-label="Enlarge exhibit 3, scholarship renewal">
+          <img src="/src/assets/aniskolar/renewal.webp" width="1917" height="903" loading="lazy" alt="The Scholarship Renewal page for the SFAG, 2nd semester: a checklist of what to prepare and a yellow notice saying renewal waits for the duty office's evaluation.">
+        </button>
+        <figcaption>Exhibit 3. Renewal lists what to prepare, and holds the renewal until the duty office has evaluated the scholar (see Note 2).</figcaption>
+      </figure>
+
+      <figure class="shot reveal">
+        <button class="shot-zoom" type="button" aria-label="Enlarge exhibit 4, duty hours">
+          <img src="/src/assets/aniskolar/duty-hours.webp" width="1895" height="903" loading="lazy" alt="The Duty Hours page: the assigned office, a locked deadline and required hours, progress figures (25 confirmed, 45 remaining, 22.5 per week) and a form to add a duty with the duty rules spelled out.">
+        </button>
+        <figcaption>Exhibit 4. Duty hours follow the grant and year level, and only times that fit the duty rules can be picked (see Note 1).</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== A5 SYSTEM ============================== -->
+<section class="page" id="system">
+  <div class="wrap">
+    <div class="page-head reveal">
+      <div><span class="kicker mono caps">Architecture</span><h2>How It Fits Together</h2></div>
+      <div class="folio mono caps"><b>A5</b>Page</div>
+    </div>
+
+    <figure class="exhibit reveal">
+      <div class="exhibit-frame">
+        <svg viewBox="0 0 1000 480" role="img" aria-labelledby="ex1-title ex1-desc">
+          <title id="ex1-title">AniSkolar system overview</title>
+          <desc id="ex1-desc">Students, scholarship offices and duty office heads use one React web app on Vercel. It talks to an Express API on Render in Singapore, which signs users in through Clerk with Microsoft accounts and uses MongoDB Atlas for data, Azure Blob Storage for documents, Azure email for Outlook messages and the office's Facebook Page for announcements.</desc>
+
+          <!-- wires (drawn in after the boxes) -->
+          <path class="wire" style="--d:.7s" pathLength="1" d="M170 80 C170 112 330 108 330 148"/>
+          <path class="wire" style="--d:.8s" pathLength="1" d="M500 80 L500 148"/>
+          <path class="wire" style="--d:.9s" pathLength="1" d="M830 80 C830 112 670 108 670 148"/>
+          <path class="wire" style="--d:1.1s" pathLength="1" d="M500 218 L500 280"/>
+          <path class="wire red" style="--d:1.3s" pathLength="1" d="M780 183 C830 183 880 190 880 216"/>
+          <path class="wire red" style="--d:1.4s" pathLength="1" d="M780 315 C830 315 880 310 880 284"/>
+          <path class="wire" style="--d:1.6s" pathLength="1" d="M300 350 C300 380 130 378 130 410"/>
+          <path class="wire" style="--d:1.7s" pathLength="1" d="M430 350 C430 380 375 378 375 410"/>
+          <path class="wire" style="--d:1.8s" pathLength="1" d="M570 350 C570 380 625 378 625 410"/>
+          <path class="wire" style="--d:1.9s" pathLength="1" d="M700 350 C700 380 870 378 870 410"/>
+
+          <text class="lbl" style="--d:1.5s" x="512" y="254">HTTPS · REST API</text>
+          <text class="lbl" style="--d:1.7s" x="792" y="172">sign-in</text>
+          <text class="lbl" style="--d:1.8s" x="792" y="340">session check</text>
+
+          <!-- users -->
+          <g class="box" style="--d:0s"><rect class="bg" x="40" y="20" width="260" height="60" rx="6"/><rect class="sw" x="40" y="20" width="6" height="60" fill="#c2412d"/><text class="t" x="62" y="47">Students</text><text class="s" x="62" y="66">apply · renew · log duty</text></g>
+          <g class="box" style="--d:.08s"><rect class="bg" x="370" y="20" width="260" height="60" rx="6"/><rect class="sw" x="370" y="20" width="6" height="60" fill="#c2412d"/><text class="t" x="392" y="47">AdSO + 14 offices</text><text class="s" x="392" y="66">review · decide · announce</text></g>
+          <g class="box" style="--d:.16s"><rect class="bg" x="700" y="20" width="260" height="60" rx="6"/><rect class="sw" x="700" y="20" width="6" height="60" fill="#c2412d"/><text class="t" x="722" y="47">Duty office heads</text><text class="s" x="722" y="66">confirm · evaluate</text></g>
+
+          <!-- app + api -->
+          <g class="box" style="--d:.3s"><rect class="bg" x="220" y="148" width="560" height="70" rx="6"/><rect class="sw" x="220" y="148" width="6" height="70" fill="#2a5d8f"/><text class="t" x="244" y="178">AniSkolar web app</text><text class="s" x="244" y="200">React · TypeScript · Vite · Tailwind — Vercel</text></g>
+          <g class="box" style="--d:.4s"><rect class="bg" x="220" y="280" width="560" height="70" rx="6"/><rect class="sw" x="220" y="280" width="6" height="70" fill="#d9a13b"/><text class="t" x="244" y="310">AniSkolar API</text><text class="s" x="244" y="332">Node.js · Express · Mongoose — Render, Singapore</text></g>
+          <g class="box" style="--d:.5s"><rect class="bg" x="800" y="216" width="170" height="68" rx="6"/><rect class="sw" x="800" y="216" width="6" height="68" fill="#c2412d"/><text class="t" x="822" y="245">Clerk</text><text class="s" x="822" y="267">Microsoft SSO</text></g>
+
+          <!-- services -->
+          <g class="box" style="--d:.55s"><rect class="bg" x="20" y="410" width="220" height="60" rx="6"/><rect class="sw" x="20" y="410" width="6" height="60" fill="#3d8a6b"/><text class="t" x="42" y="437">MongoDB Atlas</text><text class="s" x="42" y="456">20 data models</text></g>
+          <g class="box" style="--d:.6s"><rect class="bg" x="265" y="410" width="220" height="60" rx="6"/><rect class="sw" x="265" y="410" width="6" height="60" fill="#3d8a6b"/><text class="t" x="287" y="437">Azure Blob Storage</text><text class="s" x="287" y="456">private documents</text></g>
+          <g class="box" style="--d:.65s"><rect class="bg" x="515" y="410" width="220" height="60" rx="6"/><rect class="sw" x="515" y="410" width="6" height="60" fill="#3d8a6b"/><text class="t" x="537" y="437">Azure Email</text><text class="s" x="537" y="456">lands in Outlook</text></g>
+          <g class="box" style="--d:.7s"><rect class="bg" x="760" y="410" width="220" height="60" rx="6"/><rect class="sw" x="760" y="410" width="6" height="60" fill="#3d8a6b"/><text class="t" x="782" y="437">Facebook Page</text><text class="s" x="782" y="456">announcements</text></g>
+        </svg>
+      </div>
+      <figcaption>Exhibit 5. System overview. One web app and one API serve every office; the API checks who is signed in on every request and only returns that office's or that student's data.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============================== A6 NOTES ============================== -->
+<section class="page" id="notes">
+  <div class="wrap">
+    <div class="page-head reveal">
+      <div><span class="kicker mono caps">Decisions &amp; trade-offs</span><h2>Notes to the Case Study</h2></div>
+      <div class="folio mono caps"><b>A6</b>Page</div>
+    </div>
+
+    <div class="notes">
+      <article class="note reveal">
+        <div class="note-no mono caps">Note 1</div>
+        <div>
+          <h3>The office's rules live on the server</h3>
+          <p>Scholarship rules used to depend on someone remembering them. Now the API checks them whenever something is saved, so they can't be skipped by editing the page:</p>
+          <ul>
+            <li>a student holds only one internally funded scholarship at a time (they can be approved for two and choose which to keep)</li>
+            <li>new SFAG applications are only accepted in June and July</li>
+            <li>POLCA takes 2 scholars per college; Alumni takes 2 for the whole campus</li>
+            <li>duty can only be logged Monday to Friday in office hours, never over the lunch break, at least 1.5 hours long, in 30-minute steps</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="note reveal">
+        <div class="note-no mono caps">Note 2</div>
+        <div>
+          <h3>Renewals sort themselves</h3>
+          <p>Every submitted renewal is checked automatically against the minimum GPA, failing grades, required documents, last semester's duty hours and the office head's evaluation. It's marked <em>Eligible</em>, <em>Waiting</em>, <em>Needs review</em> or <em>Not eligible</em>, with the reasons listed. Everyone who passes can be renewed with one button, so staff spend their time only on the cases that actually need a decision.</p>
+        </div>
+      </article>
+
+      <article class="note reveal">
+        <div class="note-no mono caps">Note 3</div>
+        <div>
+          <h3>Fifteen offices, one database, no leaks</h3>
+          <p>Each office sees only its own applications, renewals and documents. A file can only be opened by the student who uploaded it or the office handling it. The server always identifies the student from the signed-in session, never from anything the browser sends, so one student can't ask for another student's data.</p>
+          <p>The same care went into messaging. Messages containing offensive words in English or Filipino, including ones disguised with symbols or extra letters, are flagged as you type and rejected by the server.</p>
+        </div>
+      </article>
+
+      <article class="note reveal">
+        <div class="note-no mono caps">Note 4</div>
+        <div>
+          <h3>Moving every file without changing a single record</h3>
+          <p>Documents started out in MongoDB's GridFS, which was quickly filling the free database tier. I moved storage to a private Azure Blob container while keeping the same file IDs, so no application or renewal record had to change. Reads fall back to GridFS for anything not moved yet. The migration script ran as a dry run first, then copied each existing file and checked it byte-for-byte before deleting the original.</p>
+        </div>
+      </article>
+
+      <article class="note reveal">
+        <div class="note-no mono caps">Note 5</div>
+        <div>
+          <h3>Email that lands in Outlook, and keeps landing</h3>
+          <p>Every student and staff mailbox at DLSU-D is Outlook, so email goes through Azure Communication Services. Mail waits in an outbox and goes out in small batches to stay within the service's limits. Failed sends are retried later, and anything that still fails is listed for the office to see. Message alerts jump the queue ahead of reminders, and switching email providers means changing one file.</p>
+        </div>
+      </article>
+
+      <article class="note reveal">
+        <div class="note-no mono caps">Note 6</div>
+        <div>
+          <h3>Hosting that stays awake</h3>
+          <p>Scheduled announcements, the email outbox and the automated reminders all run on timers inside the API. On a free hosting plan the API went to sleep after 15 minutes idle, and in November 2026 it once failed to wake up. It now runs on an always-on instance in Singapore, in the same region as the database and the Azure services, to keep every request short.</p>
+        </div>
+      </article>
+
+      <article class="note reveal">
+        <div class="note-no mono caps">Note 7</div>
+        <div>
+          <h3>Tested like real people depend on it</h3>
+          <p>210 API tests cover the rules above: approval chains, batch renewals, slot limits, rate limits and document ZIPs. 40 Playwright tests click through the app as a student, an AdSO admin and an office account. For demos there's a separate database, seeded with sample students and applications in every status, so a demo never touches real student data.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== A7 FIGURES ============================== -->
+<section class="page" id="results">
+  <div class="wrap">
+    <div class="page-head reveal">
+      <div><span class="kicker mono caps">By the numbers</span><h2>Selected Figures</h2></div>
+      <div class="folio mono caps"><b>A7</b>Page</div>
+    </div>
+
+    <div class="results reveal">
+      <table class="fin">
+        <caption>Counted from the two repositories, 24 November 2026</caption>
+        <thead><tr><th></th><th class="cur">AniSkolar</th><th class="txt">Note</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Scholarship offices</td>
+            <td class="num cur pen-cell"><span data-to="15">15</span><svg class="pen circle" style="--d:1.5s" viewBox="0 0 100 50" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M80 8 C60 1 22 3 9 15 C-3 28 16 46 50 45 C83 44 99 31 93 17 C88 7 70 3 54 5"/></svg></td>
+            <td class="txt">AdSO plus 14 offices, each with its own accounts</td>
+          </tr>
+          <tr><td>User roles</td><td class="num cur"><span data-to="4">4</span></td><td class="txt">Student, AdSO, office, duty office head</td></tr>
+          <tr><td>Data models</td><td class="num cur"><span data-to="20">20</span></td><td class="txt">Mongoose schemas</td></tr>
+          <tr><td>API route modules</td><td class="num cur"><span data-to="15">15</span></td><td class="txt">Applications, renewals, duty hours, messages…</td></tr>
+          <tr>
+            <td>Automated tests</td>
+            <td class="num cur pen-cell"><span data-to="250">250</span><svg class="pen circle" style="--d:1.8s" viewBox="0 0 100 50" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M20 9 C42 1 84 4 94 18 C102 32 80 46 48 45 C16 44 1 32 7 19 C12 9 30 5 46 6"/></svg></td>
+            <td class="txt"><span class="pen-wrap">210 API + 40 Playwright browser tests<svg class="pen under" style="--d:2.1s" viewBox="0 0 200 10" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 6 C20 2 30 9 50 5 S80 2 100 6 S140 9 160 4 S190 6 198 3"/></svg></span></td>
+          </tr>
+          <tr><td>Lines of TypeScript</td><td class="num cur"><span data-to="43792">43,792</span></td><td class="txt">Frontend, 111 files</td></tr>
+          <tr><td>Lines of JavaScript</td><td class="num cur"><span data-to="17491">17,491</span></td><td class="txt">Backend, including tests</td></tr>
+          <tr><td>Commits by me</td><td class="num cur"><span data-to="280">280</span></td><td class="txt">Of 285 across both repositories</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td colspan="3">Line counts include blank lines and comments. <span class="signoff">audited ✓ — Pat</span></td></tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== A8 OUTLOOK ============================== -->
+<section class="page" id="outlook">
+  <div class="wrap">
+    <div class="page-head reveal">
+      <div><span class="kicker mono caps">What's next</span><h2>Outlook</h2></div>
+      <div class="folio mono caps"><b>A8</b>Page</div>
+    </div>
+
+    <div class="outlook reveal">
+      <div>
+        <h3>Next to build</h3>
+        <ul>
+          <li>A screen for the AdSO to verify student profiles and correction requests</li>
+          <li>Emailing students the moment a decision is made</li>
+          <li>Closing application and renewal periods automatically at the deadline</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Waiting on others</h3>
+        <ul>
+          <li>Sending email from the Scholarship Office's own address (needs DLSU-D IT)</li>
+          <li>Accounts for COSA</li>
+          <li>Final details for the Heraldo Filipino scholarship and the full 19-item evaluation form</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CLOSING ============================== -->
+<section class="page contact closing" id="more">
+  <div class="wrap">
+    <div class="page-head reveal">
+      <div><span class="kicker mono caps">End of supplement A</span><h2>Further Reading</h2></div>
+      <div class="folio mono caps"><b>A9</b>Page</div>
+    </div>
+
+    <a class="big-mail reveal" href="https://www.aniskolar.com/">aniskolar.com ↗</a>
+
+    <div class="info reveal">
+      <div><h3>Source code</h3><p><a href="https://github.com/Lauron-PatrickJames/AniSkolar_Frontend">Frontend ↗</a><br><a href="https://github.com/Lauron-PatrickJames/AniSkolar_Backend">Backend ↗</a></p></div>
+      <div><h3>Questions about this project</h3><p><a href="mailto:pjameslauron@gmail.com">pjameslauron@gmail.com</a></p></div>
+      <div><h3>Return</h3><p><a href="../index.html#operations">← Back to the annual report</a></p></div>
+    </div>
+  </div>
+  <div class="contact-strip" aria-hidden="true">
+    <i style="background-color:#ff4f8b;box-shadow:0 0 24px -4px #ff4f8b"></i><i style="background-color:#ff9a3d;box-shadow:0 0 24px -4px #ff9a3d"></i><i style="background-color:#ffd447;box-shadow:0 0 24px -4px #ffd447"></i><i style="background-color:#39e092;box-shadow:0 0 24px -4px #39e092"></i><i style="background-color:#2fc6ea;box-shadow:0 0 24px -4px #2fc6ea"></i><i style="background-color:#5b6cff;box-shadow:0 0 24px -4px #5b6cff"></i>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Patrick James S. Lauron. All rights reserved.</span>
+    <span class="mono caps">Supplement A to the 2026 Annual Report</span>
+  </div>
+</footer>
+
+<!-- click-to-enlarge viewer for the exhibits -->
+<dialog class="lightbox" id="lightbox" aria-label="Enlarged exhibit">
+  <button class="lb-close mono caps" type="button">Close ✕</button>
+  <img alt="">
+  <p class="lb-cap"></p>
+</dialog>
+
+<script type="module" src="/src/case-study.ts"></script>
+</body>
+</html>
