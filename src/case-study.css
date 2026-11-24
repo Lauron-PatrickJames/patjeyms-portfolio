@@ -8,10 +8,10 @@
 }
 
 /* ===================== SUPPLEMENT COVER ===================== */
-.cs-cover { background: var(--kraft); padding-bottom: clamp(56px, 8vw, 96px); overflow: hidden; /* the stamping title starts oversized */ }
+.cs-cover { background: var(--navy); padding-bottom: clamp(56px, 8vw, 96px); overflow: hidden; /* the stamping title starts oversized */ }
 .cs-top {
   display: flex; justify-content: space-between; align-items: center; gap: 16px;
-  padding: 20px 0; border-bottom: 1px solid rgba(27, 24, 20, .3);
+  padding: 20px 0; border-bottom: 1px solid var(--rule);
 }
 .cs-top a { text-decoration: none; }
 .cs-top a:hover { color: var(--accent); }
