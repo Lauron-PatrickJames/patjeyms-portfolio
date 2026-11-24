@@ -6,9 +6,12 @@ import { $$, clamp, easeOutCubic, prefersReducedMotion } from '../lib/dom';
  *  - each section slides up over the previous one like the next sheet in a stack
  */
 
-/** How far (px) a sheet starts below its resting place, and how much it is rotated (deg). */
+/**
+ * How far (px) a sheet starts below its resting place.
+ * Vertical only: an earlier slight rotation pushed tall sections' corners past the
+ * screen edge, which made the page scroll sideways on iPhone (WebKit ignores the clip).
+ */
 const SHEET_OFFSET_PX = 90;
-const SHEET_TILT_DEG = -0.8;
 /** Fraction of the viewport over which a sheet settles into place. */
 const SETTLE_DISTANCE = 0.65;
 
@@ -30,9 +33,7 @@ export function initScrollMotion(): void {
       // offsetTop ignores transforms, so moving a sheet never feeds back into its own progress
       const top = sheet.offsetTop - y;
       const k = easeOutCubic(clamp((vh - top) / (vh * SETTLE_DISTANCE)));
-      sheet.style.transform = k >= 1
-        ? ''
-        : `translateY(${((1 - k) * SHEET_OFFSET_PX).toFixed(1)}px) rotate(${((1 - k) * SHEET_TILT_DEG).toFixed(3)}deg)`;
+      sheet.style.transform = k >= 1 ? '' : `translateY(${((1 - k) * SHEET_OFFSET_PX).toFixed(1)}px)`;
     }
   };
 

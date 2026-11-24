@@ -18,10 +18,12 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+/* nothing should ever scroll sideways; clip on both, since iOS WebKit ignores it on body alone
+   (clip, unlike hidden, doesn't break the sticky contents bar) */
+html { scroll-behavior: smooth; overflow-x: clip; }
 body {
   margin: 0;
-  overflow-x: clip; /* the tilted "sheets" must not cause sideways scrolling */
+  overflow-x: clip;
   background: var(--paper);
   color: var(--ink);
   font-family: var(--serif);
