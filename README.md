@@ -2,7 +2,7 @@
 
 My portfolio, presented as a vintage corporate annual report. Built with Vite and TypeScript, with no UI framework.
 
-**Live: [pat-lauron.vercel.app](https://pat-lauron.vercel.app)**. Every push to `main` deploys automatically on Vercel.
+**Live: [patjeyms.dev](https://patjeyms.dev)**. Every push to `main` deploys automatically on Vercel.
 
 ## Run it
 
