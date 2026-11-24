@@ -1,0 +1,30 @@
+<!doctype html>
+<!-- PJL favicon, SMALL variant for 16/32 px (no box, bigger letters), 512×512 with a transparent corner. Re-render from this folder:
+     "C:\Program Files\Google\Chrome\Application\chrome.exe" --headless=new --hide-scrollbars --window-size=512,512
+       --default-background-color=00000000 --virtual-time-budget=8000 --screenshot=pjl-favicon-small.png pjl-favicon-small.html
+     Same mark as the cover monogram: P, italic J, L in EB Garamond, boxed, cream on night. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,600;1,500&display=block" rel="stylesheet">
+<style>
+  html, body { margin: 0; width: 512px; height: 512px; background: transparent; overflow: hidden; }
+  .tile {
+    position: absolute; inset: 0; border-radius: 96px;
+    background: radial-gradient(120% 100% at 50% 30%, #1c1726 0%, #0b0a10 65%);
+    display: grid; place-items: center;
+  }
+  /* bold proportions so it still reads at 16 px */
+  .mark {
+    display: flex; align-items: baseline;
+    font-family: "EB Garamond", Georgia, serif; font-weight: 600; color: #f1ecf7;
+    font-size: 330px; line-height: .78; letter-spacing: -.03em;
+    padding: 0 0 40px; border: 0;
+  }
+  .mark i { font-style: italic; font-weight: 500; margin: 0 -.01em; }
+</style>
+</head>
+<body>
+  <div class="tile"><div class="mark">P<i>J</i>L</div></div>
+</body>
+</html>
