@@ -1,0 +1,17 @@
+{
+  "name": "pat-lauron-portfolio",
+  "private": true,
+  "version": "2.0.0",
+  "description": "Pat Lauron's portfolio, presented as a vintage annual report.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
+  }
+}

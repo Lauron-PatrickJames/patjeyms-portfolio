@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patrick James Lauron — 2026 Annual Report</title>
+<meta name="description" content="Portfolio of Patrick James S. Lauron, web developer and backend AI engineer, presented as an annual report.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<!-- play the "printing" intro once per visit (skipped for reduced-motion users) -->
+<script>try{if(!sessionStorage.getItem('printed')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('pressing')}catch(e){}</script>
+<link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+
+<!-- ============================== PRINTING INTRO (click to skip) ============================== -->
+<div class="press" id="press" aria-hidden="true">
+  <div class="press-bands"><i class="c"></i><i class="m"></i><i class="y"></i><i class="k"></i></div>
+  <span class="reg tl"></span><span class="reg tr"></span><span class="reg bl"></span><span class="reg br"></span>
+  <div class="press-label mono caps"><span>Printing · 2026 Annual Report</span><b id="pressPass">Setting type…</b></div>
+</div>
+
+<!-- ============================== COVER ============================== -->
+<header class="cover" id="top">
+  <div class="cover-head">
+    <!-- EDIT: your initials -->
+    <span class="monogram" aria-label="Patrick James Lauron">P<i>J</i>L</span>
+    <p class="cover-title">2026 Annual Report</p>
+    <p class="cover-sub">Web development, backend AI &amp; visual media</p>
+  </div>
+
+  <div class="mosaic-stage" aria-hidden="true">
+    <div id="mosaic"></div>
+    <svg class="sheen" viewBox="0 0 760 120" fill="none">
+      <defs>
+        <linearGradient id="sg" x1="0" x2="1">
+          <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+          <stop offset=".35" stop-color="#fff" stop-opacity=".9"/>
+          <stop offset="1" stop-color="#fff" stop-opacity=".15"/>
+        </linearGradient>
+      </defs>
+      <path d="M4 108 C 200 24, 470 6, 756 22" stroke="url(#sg)" stroke-width="2.2"/>
+    </svg>
+  </div>
+
+  <div class="cover-foot">
+    <span class="mono caps">Vol. 01 &nbsp;·&nbsp; Fiscal Year 2026 &nbsp;·&nbsp; Bacoor, Cavite</span>
+    <a class="scroll mono caps" href="#letter">Open report <span>↓</span></a>
+  </div>
+</header>
+
+<!-- ============================== CONTENTS ============================== -->
+<nav class="contents" aria-label="Contents">
+  <div class="wrap">
+    <a class="who" href="#top">Patrick James Lauron</a>
+    <ol>
+      <li><a class="sec" href="#letter"><span class="mono">02</span>Letter</a></li>
+      <li><a class="sec" href="#highlights"><span class="mono">04</span>Highlights</a></li>
+      <li><a class="sec" href="#operations"><span class="mono">06</span>Operations</a></li>
+      <li><a class="sec" href="#summary"><span class="mono">10</span>Five-Year Summary</a></li>
+      <li><a class="sec" href="#capabilities"><span class="mono">12</span>Capabilities</a></li>
+      <li><a class="sec" href="#contact"><span class="mono">14</span>Shareholder Info</a></li>
+    </ol>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============================== LETTER (About) ============================== -->
+<section class="page" id="letter">
+  <div class="wrap">
+    <div class="page-head reveal">
+      <div>
+        <span class="kicker mono caps">About</span>
+        <h2>Letter to Stakeholders</h2>
+      </div>
+      <div class="folio mono caps"><b>02</b>Page</div>
+    </div>
+
+    <div class="letter">
+      <div class="letter-body reveal">
+        <p class="salute">To friends, collaborators, and recruiters who scrolled this far:</p>
+        <p class="first">My name is Patrick, but most people call me Pat. I'm an Information Technology student at De La Salle University – Dasmariñas on the Web Development track, and this was a busy year. I build full-stack web apps, and lately I've moved closer to the model side of things as a backend AI engineer at FlyRank AI, benchmarking LLMs and retrieval techniques for AI search and ranking.</p>
+        <p>My biggest build this year is AniSkolar, the scholarship management system I'm making for my university as my capstone. It takes paperwork that used to live in folders and spreadsheets and turns it into dashboards, automated reports, and a sign-in that just uses your school account.</p>
+        <p>Away from the code editor I edit video, take photos, and design graphics. That started as freelance work and carried on when I co-directed my college student government's media committee. I also serve there as a legislative councilor, drafting and passing ordinances for students in my college.</p>
+        <p>The outlook for the coming year is strong. I graduate in 2027, and I'm always glad to hear about interesting work in web and AI engineering.</p>
+        <div class="sign">
+          <span class="sig">Pat Lauron</span>
+          <small>Patrick James S. Lauron, BS Information Technology, Class of 2027</small>
+        </div>
+      </div>
+      <aside class="reveal">
+        <figure>
+          <img class="portrait" src="/src/assets/me.jpg" alt="Patrick James Lauron looking at photographs pinned to a gallery wall">
+          <figcaption>Fig. 1. The author, at a photo exhibition, fiscal 2026.</figcaption>
+        </figure>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== HIGHLIGHTS (Stats) ============================== -->
+<section class="page" id="highlights">
+  <div class="wrap">
+    <div class="page-head reveal">
+      <div>
+        <span class="kicker mono caps">By the numbers</span>
+        <h2>Financial Highlights</h2>
+      </div>
+      <div class="folio mono caps"><b>04</b>Page</div>
+    </div>
+
+    <div class="highlights">
+      <div class="reveal">
+        <!-- EDIT: data-to = the number it counts up to -->
+        <table class="fin">
+          <caption>Selected figures, fiscal year 2026</caption>
+          <thead>
+            <tr><th></th><th class="cur">FY 2026</th><th class="txt">Note</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cumulative GPA (of 4.00)</td>
+              <td class="num cur pen-cell"><span data-to="3.64">3.64</span><svg class="pen circle" style="--d:1.5s" viewBox="0 0 100 50" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M80 8 C60 1 22 3 9 15 C-3 28 16 46 50 45 C83 44 99 31 93 17 C88 7 70 3 54 5"/></svg></td>
+              <td class="txt"><span class="pen-wrap">First Honors Dean's Lister since 2023<svg class="pen under" style="--d:2.1s" viewBox="0 0 200 10" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 6 C20 2 30 9 50 5 S80 2 100 6 S140 9 160 4 S190 6 198 3"/></svg></span></td>
+            </tr>
+            <tr>
+              <td>TOEIC score</td>
+              <td class="num cur pen-cell"><span data-to="900">900</span><svg class="pen circle" style="--d:1.8s" viewBox="0 0 100 50" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M20 9 C42 1 84 4 94 18 C102 32 80 46 48 45 C16 44 1 32 7 19 C12 9 30 5 46 6"/></svg></td>
+              <td class="txt">C1 Advanced</td>
+            </tr>
+            <tr><td>Committee members led</td><td class="num cur" data-to="14">14</td><td class="txt">Technical &amp; Media Management</td></tr>
+            <tr><td>Certifications earned</td><td class="num cur" data-to="7">7</td><td class="txt">Cybersecurity, AI, Python, networking</td></tr>
+            <tr><td>Full-stack apps shipped</td><td class="num cur" data-to="2">2</td><td class="txt">AniSkolar, Travelogue</td></tr>
+            <tr><td>Leadership awards</td><td class="num cur" data-to="2">2</td><td class="txt">2025 and 2026</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><td colspan="3">Figures as of November 2026. Unaudited, but accurate. <span class="signoff">checked ✓ — Pat</span></td></tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div class="alloc reveal">
+        <h3>Awards &amp; Certifications</h3>
+        <p>Recognition received, by year</p>
+        <ul class="ledger">
+          <li><svg class="pen tick" style="--d:1.2s" viewBox="0 0 20 16" aria-hidden="true"><path pathLength="1" d="M2 9 L7 14 L18 2"/></svg><span>Excellence in Leadership: Legislative Councilor</span><span class="mono">2026</span></li>
+          <li><svg class="pen tick" style="--d:1.45s" viewBox="0 0 20 16" aria-hidden="true"><path pathLength="1" d="M2 9 L7 14 L18 2"/></svg><span>Excellence in Leadership: Committee Member of the Year</span><span class="mono">2025</span></li>
+          <li><span>Network and Cybersecurity Fundamentals</span><span class="mono">2026</span></li>
+          <li><span>Introduction to Cybersecurity Awareness <em>(HP LIFE)</em></span><span class="mono">2026</span></li>
+          <li><span>Wonders and Perils of AI &amp; Emerging Technology</span><span class="mono">2026</span></li>
+          <li><span>Professional Networking for Career Growth <em>(HP LIFE)</em></span><span class="mono">2026</span></li>
+          <li><span>TOEIC 900, C1 Advanced</span><span class="mono">—</span></li>
+          <li><span>Cisco Packet Tracer</span><span class="mono">—</span></li>
+          <li><span>Python Essentials 1</span><span class="mono">—</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== OPERATIONS (Projects) ============================== -->
+<section class="page ops" id="operations">
+  <div class="wrap">
+    <div class="page-head reveal">
+      <div>
+        <span class="kicker mono caps">Projects &amp; work</span>
+        <h2>Review of Operations</h2>
+      </div>
+      <div class="folio mono caps"><b>06</b>Page</div>
+    </div>
+  </div>
+
+  <div class="band reveal">
+    <div class="wrap">
+      <h3 class="band-title">Selected Work, 2025 – 2026</h3>
+      <div class="panels">
+        <button data-target="p1"><div class="art a1"></div><span class="art-cap"><span class="mono">01</span>AniSkolar</span></button>
+        <button data-target="p2"><div class="art a2"></div><span class="art-cap"><span class="mono">02</span>Travelogue</span></button>
+        <button data-target="p3"><div class="art a3"></div><span class="art-cap"><span class="mono">03</span>AI Search &amp; Ranking</span></button>
+        <button data-target="p4"><div class="art a4"></div><span class="art-cap"><span class="mono">04</span>Media &amp; Design</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <!-- EDIT: add a Live ↗ link next to Source when a project is deployed -->
+    <div class="projects">
+      <article class="project reveal" id="p1">
+        <div class="no">01</div>
+        <div><h3>AniSkolar</h3><p class="role">Undergraduate capstone · May 2026 – Present</p></div>
+        <div class="desc-col">
+          <p class="desc">A full-stack scholarship management system for De La Salle University – Dasmariñas. Students apply and track their GPA and duty hours from a dashboard; administrators get automated reports instead of manual paperwork. Includes an Express and MongoDB REST API with GridFS document storage, plus Microsoft SSO that routes each user to the student or admin portal.</p>
+          <div class="tags"><span>React</span><span>TypeScript</span><span>Vite</span><span>Tailwind CSS</span><span>Node.js</span><span>Express</span><span>MongoDB</span><span>Clerk</span></div>
+        </div>
+        <div class="links"><a href="https://github.com/Lauron-PatrickJames/AniSkolar_Frontend">Source ↗</a></div>
+      </article>
+      <article class="project reveal" id="p2">
+        <div class="no">02</div>
+        <div><h3>Travelogue</h3><p class="role">Personal project · Dec 2025</p></div>
+        <div class="desc-col">
+          <p class="desc">A travel planning companion that puts flight search, hotel booking, and itinerary planning in one app. It pulls live flight prices and hotel data from SerpAPI and TripAdvisor, maps your itinerary and nearby landmarks with Leaflet, and follows WCAG 2.1 with print-friendly booking confirmations.</p>
+          <div class="tags"><span>React</span><span>React Router</span><span>Axios</span><span>Leaflet</span><span>SerpAPI</span><span>TripAdvisor API</span></div>
+        </div>
+        <div class="links"><a href="https://github.com/Lauron-PatrickJames/Travelogue">Source ↗</a></div>
+      </article>
+      <article class="project reveal" id="p3">
+        <div class="no">03</div>
+        <div><h3>AI Search &amp; Ranking</h3><p class="role">Backend AI Engineering, FlyRank AI · Sep 2026 – Present</p></div>
+        <div class="desc-col">
+          <p class="desc">Researching and benchmarking state-of-the-art models, LLMs, and retrieval techniques to improve AI search and ranking. I build and evaluate Python ML pipelines for RAG and NLP workflows on large datasets, then work with ML engineers and developers to turn the findings into production features.</p>
+          <div class="tags"><span>Python</span><span>LLMs</span><span>RAG</span><span>NLP</span><span>Evaluation</span></div>
+        </div>
+        <div class="links"></div>
+      </article>
+      <article class="project reveal" id="p4">
+        <div class="no">04</div>
+        <div><h3>Media &amp; Design</h3><p class="role">Freelance &amp; CICS Student Government · 2025 – 2026</p></div>
+        <div class="desc-col">
+          <p class="desc">Promotional and social media videos, graphics, and event photography. I edited and designed for clients on a recurring schedule, and led a 14-member committee handling documentation, media archiving, and visuals for official publications.</p>
+          <div class="tags"><span>Video editing</span><span>Photography</span><span>Graphic design</span><span>Adobe Creative Suite</span></div>
+        </div>
+        <div class="links"></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FIVE-YEAR SUMMARY (Experience) ============================== -->
+<section class="page" id="summary">
+  <div class="wrap">
+    <div class="page-head reveal">
+      <div>
+        <span class="kicker mono caps">Experience &amp; education</span>
+        <h2>Five-Year Summary</h2>
+      </div>
+      <div class="folio mono caps"><b>10</b>Page</div>
+    </div>
+
+    <table class="fin summary reveal">
+      <thead><tr><th>Period</th><th>Position</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Sep 2026 – Present</td><td><b>Backend AI Engineering</b><span class="org">FlyRank AI (Remote)</span></td><td class="note">Benchmarking models, LLMs, and retrieval for AI search and ranking; building Python evaluation pipelines for RAG and NLP.</td></tr>
+        <tr><td>Mar – Apr 2026</td><td><b>Freelance Video Editor &amp; Graphic Designer</b><span class="org">Self-employed (Remote)</span></td><td class="note">Promotional and social videos and marketing graphics, delivered on a recurring schedule.</td></tr>
+        <tr><td>Aug 2025 – Present</td><td><b>Legislative Councilor</b><span class="org">CICS Student Government, DLSU-D</span></td><td class="note">Drafted, proposed, and passed ordinances after consulting students and stakeholders. Excellence in Leadership, 2026.</td></tr>
+        <tr><td>Aug 2025 – May 2026</td><td><b>Co-Director, Technical &amp; Media Management</b><span class="org">CICS Student Government, DLSU-D</span></td><td class="note">Led a 14-member committee for event documentation and media archiving; set up file naming, storage, and backup protocols.</td></tr>
+        <tr><td>2023 – 2027</td><td><b>BS Information Technology, Web Development</b><span class="org">De La Salle University – Dasmariñas</span></td><td class="note">Expected 2027. Cumulative GPA 3.64 / 4.0; First Honors Dean's Lister, 2023 – present.</td></tr>
+        <tr><td>2021 – 2023</td><td><b>Senior High School, STEM</b><span class="org">Emilio Aguinaldo College – Cavite</span></td><td class="note">With Honors in Grades 11 and 12.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================== CAPABILITIES (Skills) ============================== -->
+<section class="page" id="capabilities">
+  <div class="wrap">
+    <div class="page-head reveal">
+      <div>
+        <span class="kicker mono caps">Skills &amp; tools</span>
+        <h2>Products &amp; Services</h2>
+      </div>
+      <div class="folio mono caps"><b>12</b>Page</div>
+    </div>
+
+    <div class="divisions reveal">
+      <div class="division" style="--sw:#c2412d">
+        <div class="swatch"></div>
+        <h3>Web Division</h3>
+        <ul><li>React &amp; TypeScript</li><li>Node.js &amp; Express</li><li>Tailwind CSS</li><li>PHP</li><li>C# &amp; .NET</li><li>Git &amp; GitHub</li></ul>
+      </div>
+      <div class="division" style="--sw:#2a5d8f">
+        <div class="swatch"></div>
+        <h3>AI &amp; Data Division</h3>
+        <ul><li>Python</li><li>LLMs &amp; retrieval</li><li>RAG &amp; NLP pipelines</li><li>Model evaluation</li><li>MongoDB</li></ul>
+      </div>
+      <div class="division" style="--sw:#d9a13b">
+        <div class="swatch"></div>
+        <h3>Media Division</h3>
+        <ul><li>Video editing</li><li>Photography</li><li>Videography</li><li>Image editing</li><li>Adobe Creative Suite</li></ul>
+      </div>
+      <div class="division" style="--sw:#3d8a6b">
+        <div class="swatch"></div>
+        <h3>Leadership Division</h3>
+        <ul><li>Organizational leadership</li><li>Legislative drafting</li><li>Ordinance review</li><li>Committee management</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SHAREHOLDER INFO (Contact) ============================== -->
+<section class="page contact" id="contact">
+  <div class="wrap">
+    <div class="page-head reveal">
+      <div>
+        <span class="kicker mono caps">Contact</span>
+        <h2>Shareholder Information</h2>
+      </div>
+      <div class="folio mono caps"><b>14</b>Page</div>
+    </div>
+
+    <a class="big-mail reveal" href="mailto:pjameslauron@gmail.com">pjameslauron@gmail.com</a>
+
+    <div class="info reveal">
+      <div><h3>Corporate headquarters</h3><p>Bacoor, Cavite, Philippines<br>Available for remote work</p></div>
+      <div><h3>Stock listing</h3><p>Traded on <a href="https://github.com/Lauron-PatrickJames">GitHub</a> under the symbol <span class="mono">Lauron-PatrickJames</span>, and on <a href="https://www.linkedin.com/in/patjeyms">LinkedIn</a> as <span class="mono">patjeyms</span></p></div>
+      <div><h3>Investor relations</h3><p><a href="https://github.com/Lauron-PatrickJames">GitHub</a><br><a href="resume.pdf">Résumé (PDF)</a></p></div>
+      <div><h3>Annual meeting</h3><p>Open to coffee chats, any weekday.</p></div>
+      <div><h3>Current status</h3><p>BSIT student, graduating 2027. Open to internships, projects &amp; collaborations.</p></div>
+      <div><h3>Transfer agent</h3><p><a href="#top">Return to cover ↑</a></p></div>
+    </div>
+  </div>
+  <div class="contact-strip" id="strip" aria-hidden="true"></div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Patrick James S. Lauron. All rights reserved.</span>
+    <span class="mono caps">Printed in Cavite, Philippines, on the World Wide Web</span>
+  </div>
+</footer>
+
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>
